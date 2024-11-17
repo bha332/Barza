@@ -19,6 +19,7 @@
             background-color: #cc6600; /* Orange Bronze */
             color: #fff;
             text-align: center;
+            overflow-x: hidden;
         }
 
         /* Video Container */
@@ -101,6 +102,20 @@
             color: #fff;
             font-size: 0.9em;
         }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .floating-text h1 {
+                font-size: 2.5em;
+            }
+            .links-container h2 {
+                font-size: 1.5em;
+            }
+            .links-container a {
+                font-size: 1.2em;
+            }
+        }
+
     </style>
 </head>
 <body>
