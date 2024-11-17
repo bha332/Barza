@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barza - Gaza Awareness Campaign</title>
+    <title>Gaza Awareness Campaign</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         /* General Reset */
@@ -30,7 +30,7 @@
         }
 
         /* Full-Screen Video */
-        iframe {
+        #gaza-video {
             position: absolute;
             top: 0;
             left: 0;
@@ -107,7 +107,10 @@
 
     <!-- Video Section -->
     <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/IH49cZbmzbI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <video autoplay muted loop id="gaza-video">
+            <source src="https://bha332.github.io/barza/assets/videos/gaza-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <!-- Floating Text -->
         <div class="floating-text">
             <h1>HEAR THEIR CRIES</h1>
