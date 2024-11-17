@@ -30,7 +30,7 @@
         }
 
         /* Full-Screen Video */
-        #gaza-video {
+        iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -107,10 +107,7 @@
 
     <!-- Video Section -->
     <div class="video-container">
-        <video autoplay muted loop id="gaza-video">
-            <source src="https://drive.google.com/uc?export=download&id=1BvcSnb4zIlUKcA38PlUb1NMBvCWG2wXZ" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <iframe src="https://www.youtube.com/embed/IH49cZbmzbI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <!-- Floating Text -->
         <div class="floating-text">
             <h1>HEAR THEIR CRIES</h1>
