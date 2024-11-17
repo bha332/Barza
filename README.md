@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaza Awareness Campaign</title>
+    <title>Barza - Gaza Awareness Campaign</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         /* General Reset */
@@ -16,10 +16,9 @@
         /* Body and Background */
         body {
             font-family: 'Press Start 2P', cursive;
-            background-color: #cc6600; /* Orange Bronze */
+            background-color: #b46e3f; /* Orange Copper */
             color: #fff;
             text-align: center;
-            overflow-x: hidden;
         }
 
         /* Video Container */
@@ -102,20 +101,6 @@
             color: #fff;
             font-size: 0.9em;
         }
-
-        /* Media Queries for responsiveness */
-        @media (max-width: 768px) {
-            .floating-text h1 {
-                font-size: 2.5em;
-            }
-            .links-container h2 {
-                font-size: 1.5em;
-            }
-            .links-container a {
-                font-size: 1.2em;
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -143,13 +128,13 @@
         </ul>
     </div>
 
-    <!-- Optional: Add a footer -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Gaza Awareness Campaign</p>
+        <p>&copy; 2024 Barza - Gaza Awareness Campaign</p>
     </footer>
 
     <script>
-        // Example of a simple JavaScript function to alert visitors
+        // Simple JavaScript function to alert visitors
         window.onload = function() {
             alert("Thank you for visiting. Please help raise awareness about Gaza's destruction.");
         };
