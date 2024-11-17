@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaza Awareness Campaign</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         /* General Reset */
         * {
@@ -14,8 +15,8 @@
 
         /* Body and Background */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
+            font-family: 'Press Start 2P', cursive;
+            background-color: #cc6600; /* Orange Bronze */
             color: #fff;
             text-align: center;
         }
@@ -46,6 +47,7 @@
             transform: translateX(-50%);
             font-size: 4em;
             color: red;
+            font-family: 'Pacifico', cursive;
             animation: floatText 6s infinite;
         }
 
@@ -67,6 +69,7 @@
         .links-container h2 {
             margin-bottom: 20px;
             font-size: 2em;
+            font-family: 'Pacifico', cursive;
         }
 
         .links-container ul {
@@ -110,7 +113,7 @@
         </video>
         <!-- Floating Text -->
         <div class="floating-text">
-            <h1>GAZA IS DYING!!</h1>
+            <h1>HEAR THEIR CRIES</h1>
         </div>
     </div>
 
@@ -120,7 +123,7 @@
         <ul>
             <li><a href="https://matwprojectusa.org/crisis-and-emergencies/palestine?gclsrc=aw.ds&gad_source=1&gclid=CjwKCAiAxea5BhBeEiwAh4t5K7et6PDpa1tfMXKTNRWLEiJOg7Pmtp4GtDA748ZuuNXfZpph0_7PeBoClCMQAvD_BwE" target="_blank">Donate to Gaza Relief</a></li>
             <li><a href="https://www.unicef.org/sop/take-action" target="_blank">Take Action - How to Get Involved</a></li>
-            <li><a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" target="_blank">Stay Updated on Gaza Death Toll</a></li>
+            <li><a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" target="_blank">Gaza Death Toll</a></li>
             <li><a href="https://www.aljazeera.com/tag/gaza/" target="_blank">Stay Up to Date on Gaza News</a></li>
         </ul>
     </div>
