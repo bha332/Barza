@@ -108,8 +108,7 @@
     <!-- Video Section -->
     <div class="video-container">
         <video autoplay muted loop id="gaza-video">
-            <!-- Make sure the video link is correct and accessible -->
-            <source src="https://bha332.github.io/barza/assets/videos/gaza-video.mp4" type="video/mp4">
+            <source src="https://bha332.github.io/barza/assets/videos/TTDAE0304.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <!-- Floating Text -->
