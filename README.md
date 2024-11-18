@@ -105,17 +105,21 @@
 </head>
 <body>
 
-    <!-- Video Section -->
-    <div class="video-container">
-        <video autoplay muted loop id="gaza-video">
-            <source src="https://bha332.github.io/barza/assets/videos/TTDAE0304.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <!-- Floating Text -->
-        <div class="floating-text">
-            <h1>HEAR THEIR CRIES</h1>
-        </div>
+<!-- Video Section -->
+<div class="video-container">
+    <video autoplay muted loop playsinline id="gaza-video">
+        <!-- Update the source URL once the file is uploaded -->
+        <source src="https://bha332.github.io/barza/assets/videos/TTDAE0304.mp4" type="video/mp4">
+        <!-- Fallback Message -->
+        Your browser does not support the video tag. 
+        <a href="https://bha332.github.io/barza/assets/videos/TTDAE0304.mp4" target="_blank">Click here to watch the video</a>.
+    </video>
+    <!-- Floating Text -->
+    <div class="floating-text">
+        <h1>HEAR THEIR CRIES</h1>
     </div>
+</div>
+
 
     <!-- Links Section -->
     <div class="links-container">
