@@ -35,6 +35,22 @@
       animation: fadeInOut 3s infinite;
     }
 
+    .sound-button {
+      position: absolute;
+      top: 90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: orange;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      animation: fadeInOut 3s infinite;
+    }
+
     @keyframes fadeInOut {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -71,11 +87,12 @@
 </head>
 <body>
   <div class="video-container">
-    <video autoplay loop muted>
+    <video id="video" autoplay loop muted>
       <source src="assets/videos/copy_BE49A0DC-82B3-4D83-8028-F6AED2B252F3.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div class="overlay-text">Hear Their Cries</div>
+    <button id="soundButton" class="sound-button">Play with Sound</button>
   </div>
   
   <div class="links">
@@ -87,5 +104,14 @@
   <div class="awareness">
     You can help for free by sharing this website and raising awareness.
   </div>
+  <script>
+    const video = document.getElementById('video');
+    const soundButton = document.getElementById('soundButton');
+
+    soundButton.addEventListener('click', () => {
+      video.muted = false;
+      soundButton.style.display = 'none'; // Hide button after enabling sound
+    });
+  </script>
 </body>
 </html>
