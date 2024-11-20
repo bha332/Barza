@@ -35,41 +35,49 @@
       animation: fadeInOut 3s infinite;
     }
 
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
     .floating-text {
       position: fixed;
       top: 10%;
       left: 50%;
-      transform: translateX(-50%);
+      width: 100%;
       text-align: center;
-      color: white;
-      z-index: 1000;
-      pointer-events: none;
+      color: red;
+      z-index: 1000; /* Keeps the text above other elements */
+      pointer-events: none; /* Prevents user interaction */
     }
 
     .text-line {
       font-size: 1.5rem;
       margin: 20px 0;
-      animation: float 5s infinite;
+      animation: floatAround 10s infinite;
+      color: red; /* Text color set to red */
     }
 
     .text-line.stop {
       font-size: 2rem;
-      color: red;
       font-weight: bold;
     }
 
-    @keyframes float {
+    @keyframes floatAround {
       0% {
-        opacity: 0;
-        transform: translateY(-30px);
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(-10px, 20px);
       }
       50% {
-        opacity: 1;
-        transform: translateY(0);
+        transform: translate(10px, -20px);
+      }
+      75% {
+        transform: translate(-10px, -10px);
       }
       100% {
-        opacity: 0;
-        transform: translateY(30px);
+        transform: translate(0, 0);
       }
     }
 
@@ -87,11 +95,6 @@
       cursor: pointer;
       border-radius: 5px;
       animation: fadeInOut 3s infinite;
-    }
-
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
     }
 
     .links {
@@ -124,12 +127,14 @@
   </style>
 </head>
 <body>
+  <!-- Floating Text Section -->
   <div class="floating-text">
     <p class="text-line">What Israel's bombs that are funded by the USA are actually doing</p>
     <p class="text-line">What if these were pictures of your kid?</p>
     <p class="text-line stop">STOP THE GENOCIDE</p>
   </div>
 
+  <!-- Video Section -->
   <div class="video-container">
     <video id="video" autoplay loop muted>
       <source src="assets/videos/copy_BE49A0DC-82B3-4D83-8028-F6AED2B252F3.mp4" type="video/mp4">
@@ -138,26 +143,28 @@
     <div class="overlay-text">Hear Their Cries</div>
     <button id="soundButton" class="sound-button">Enable Sound</button>
   </div>
-  
+
+  <!-- Links Section -->
   <div class="links">
     <a href="https://matwprojectusa.org/appeals/limbs-of-hope" class="link-button">Donate</a>
     <a href="https://www.aljazeera.com/tag/gaza/" class="link-button">Live Updates</a>
     <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button">Victims' Names</a>
   </div>
 
+  <!-- Awareness Section -->
   <div class="awareness">
     You can help for free by sharing this website and raising awareness.
   </div>
+
   <script>
     const video = document.getElementById('video');
     const soundButton = document.getElementById('soundButton');
 
     soundButton.addEventListener('click', () => {
-      video.muted = false;
-      video.play(); // Ensures video continues playing
+      video.muted = false; // Enable sound
+      video.play(); // Ensure video continues playing
       soundButton.style.display = 'none'; // Hide the button after enabling sound
     });
   </script>
 </body>
 </html>
-
