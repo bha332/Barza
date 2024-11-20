@@ -92,7 +92,7 @@
       Your browser does not support the video tag.
     </video>
     <div class="overlay-text">Hear Their Cries</div>
-    <button id="soundButton" class="sound-button">Play with Sound</button>
+    <button id="soundButton" class="sound-button">Enable Sound</button>
   </div>
   
   <div class="links">
@@ -110,7 +110,8 @@
 
     soundButton.addEventListener('click', () => {
       video.muted = false;
-      soundButton.style.display = 'none'; // Hide button after enabling sound
+      video.play(); // Ensures video continues playing
+      soundButton.style.display = 'none'; // Hide the button after enabling sound
     });
   </script>
 </body>
