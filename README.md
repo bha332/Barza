@@ -71,7 +71,7 @@
 </head>
 <body>
   <div class="video-container">
-    <video autoplay loop controls>
+    <video autoplay loop muted>
       <source src="assets/videos/copy_BE49A0DC-82B3-4D83-8028-F6AED2B252F3.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
