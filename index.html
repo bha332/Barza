@@ -40,61 +40,26 @@
       50% { opacity: 0.5; }
     }
 
-    .floating-text {
+    .audio-overlay {
       position: fixed;
-      top: 10%;
-      left: 50%;
+      top: 0;
+      left: 0;
       width: 100%;
-      text-align: center;
-      color: red;
-      z-index: 1000; /* Keeps the text above other elements */
-      pointer-events: none; /* Prevents user interaction */
-    }
-
-    .text-line {
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 1.5rem;
-      margin: 20px 0;
-      animation: floatAround 10s infinite;
-      color: red; /* Text color set to red */
-    }
-
-    .text-line.stop {
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    @keyframes floatAround {
-      0% {
-        transform: translate(0, 0);
-      }
-      25% {
-        transform: translate(-10px, 20px);
-      }
-      50% {
-        transform: translate(10px, -20px);
-      }
-      75% {
-        transform: translate(-10px, -10px);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
-    }
-
-    .sound-button {
-      position: absolute;
-      top: 90%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: orange;
-      color: black;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-weight: bold;
+      z-index: 10000;
+      text-align: center;
       cursor: pointer;
-      border-radius: 5px;
-      animation: fadeInOut 3s infinite;
+    }
+
+    .audio-overlay p {
+      margin: 0;
+      padding: 0 20px;
     }
 
     .links {
@@ -127,11 +92,9 @@
   </style>
 </head>
 <body>
-  <!-- Floating Text Section -->
-  <div class="floating-text">
-    <p class="text-line">What Israel's bombs that are funded by the USA are actually doing</p>
-    <p class="text-line">What if these were pictures of your kid?</p>
-    <p class="text-line stop">STOP THE GENOCIDE</p>
+  <!-- Overlay for Audio -->
+  <div id="audioOverlay" class="audio-overlay">
+    <p class="overlay-text">Tap to start the video with sound</p>
   </div>
 
   <!-- Video Section -->
@@ -141,7 +104,6 @@
       Your browser does not support the video tag.
     </video>
     <div class="overlay-text">Hear Their Cries</div>
-    <button id="soundButton" class="sound-button">Enable Sound</button>
   </div>
 
   <!-- Links Section -->
@@ -158,13 +120,28 @@
 
   <script>
     const video = document.getElementById('video');
-    const soundButton = document.getElementById('soundButton');
+    const audioOverlay = document.getElementById('audioOverlay');
 
-    soundButton.addEventListener('click', () => {
-      video.muted = false; // Enable sound
-      video.play(); // Ensure video continues playing
-      soundButton.style.display = 'none'; // Hide the button after enabling sound
+    // Enable audio when overlay is clicked
+    audioOverlay.addEventListener('click', () => {
+      video.muted = false; // Unmute the video
+      video.play(); // Start playing
+      audioOverlay.style.display = 'none'; // Hide the overlay
     });
+
+    // Prevent navigation until the video ends
+    let videoEnded = false;
+    video.addEventListener('ended', () => {
+      videoEnded = true;
+      window.onbeforeunload = null; // Allow navigation after the video ends
+    });
+
+    window.onbeforeunload = (e) => {
+      if (!videoEnded) {
+        e.preventDefault();
+        e.returnValue = "The video is still playing. Are you sure you want to leave?";
+      }
+    };
   </script>
 </body>
 </html>
