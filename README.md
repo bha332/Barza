@@ -72,7 +72,7 @@
 <body>
   <div class="video-container">
     <video autoplay loop controls>
-      <source src="path-to-your-video.mp4" type="video/mp4">
+      <source src="assets/videos/copy_BE49A0DC-82B3-4D83-8028-F6AED2B252F3.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div class="overlay-text">Hear Their Cries</div>
