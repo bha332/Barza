@@ -122,24 +122,28 @@
     const video = document.getElementById('video');
     const audioOverlay = document.getElementById('audioOverlay');
 
-    // Enable audio when overlay is clicked
+    let videoEnded = false; // Track if the video has ended
+
+    // Enable audio and hide the overlay
     audioOverlay.addEventListener('click', () => {
       video.muted = false; // Unmute the video
       video.play(); // Start playing
       audioOverlay.style.display = 'none'; // Hide the overlay
     });
 
-    // Prevent navigation until the video ends
-    let videoEnded = false;
+    // Track when the video ends
     video.addEventListener('ended', () => {
-      videoEnded = true;
-      window.onbeforeunload = null; // Allow navigation after the video ends
+      videoEnded = true; // Mark the video as finished
+      window.onbeforeunload = null; // Remove the unload warning
     });
 
+    // Warn users if they try to leave before the video finishes
     window.onbeforeunload = (e) => {
       if (!videoEnded) {
-        e.preventDefault();
-        e.returnValue = "The video is still playing. Are you sure you want to leave?";
+        const message = "The video is still playing. Are you sure you want to leave?";
+        e.preventDefault(); // Prevent navigation
+        e.returnValue = message; // Display the message
+        return message; // Necessary for some browsers
       }
     };
   </script>
