@@ -35,6 +35,44 @@
       animation: fadeInOut 3s infinite;
     }
 
+    .floating-text {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .text-line {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      animation: float 5s infinite;
+    }
+
+    .text-line.stop {
+      font-size: 2rem;
+      color: red;
+      font-weight: bold;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+    }
+
     .sound-button {
       position: absolute;
       top: 90%;
@@ -86,6 +124,12 @@
   </style>
 </head>
 <body>
+  <div class="floating-text">
+    <p class="text-line">What Israel's bombs that are funded by the USA are actually doing</p>
+    <p class="text-line">What if these were pictures of your kid?</p>
+    <p class="text-line stop">STOP THE GENOCIDE</p>
+  </div>
+
   <div class="video-container">
     <video id="video" autoplay loop muted>
       <source src="assets/videos/copy_BE49A0DC-82B3-4D83-8028-F6AED2B252F3.mp4" type="video/mp4">
