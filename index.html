@@ -3,221 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Family Support Campaign</title>
+  <title>Barza Campaign</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Base Styles */
+    body, html {
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
-    }
-
-    .family-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .family-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .family-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .family-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .family-details {
-      padding: 15px;
-    }
-
-    .family-details p {
-      margin: 0 0 10px;
-      color: #333;
-    }
-
-    .donate-link {
-      display: inline-block;
-      background-color: #007bff;
+      background-color: #b5651d; /* Orange-bronze */
       color: white;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* Prevent scrolling during video */
     }
 
-    .donate-link:hover {
-      background-color: #0056b3;
-    }
-
-    .filter-search {
-      padding: 10px 20px;
-      background: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    #search-input {
+    /* Video Container */
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 400px;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ddd;
+      height: 100%;
+      background: black;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Prevent cropping */
+    }
+
+    /* Overlay for Audio Interaction */
+    .audio-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .audio-overlay button {
+      background-color: #ffcc00;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
       border-radius: 5px;
-      outline: none;
-      transition: border 0.3s ease;
+      cursor: pointer;
+      margin-top: 20px;
     }
 
-    #search-input:focus {
-      border-color: #007bff;
+    /* Links Section */
+    .links-section {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 2000;
     }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .family-cards {
-        grid-template-columns: 1fr;
+    .link-button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px 20px;
+      background-color: #ffcc00;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .link-button:hover {
+      background-color: #e6b800;
+    }
+
+    /* Prevent Navigation */
+    @media (pointer: coarse) {
+      body {
+        touch-action: none;
       }
     }
   </style>
 </head>
 <body>
-  <div class="filter-search">
-    <input type="text" id="search-input" placeholder="Search for a family..." oninput="filterCards()">
+
+  <!-- Video Section -->
+  <div class="video-container">
+    <video id="video" autoplay muted>
+      <source src="assets/videos/RQTU9611.MOV" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
-  <div class="family-cards">
-    <!-- Family 1 -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1503.webp" alt="Family 1 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Family 1:</strong> After losing everything to the relentless violence in Gaza, this family has been forced to flee repeatedly...</p>
-        <a href="https://gofund.me/454fcb52" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
+  <!-- Audio Overlay -->
+  <div class="audio-overlay" id="audioOverlay">
+    <p>Please tap to start the video with sound. <br>Your interaction is required by the browser.</p>
+    <button id="startButton">Enable Sound</button>
+  </div>
 
-    <!-- Family 2 -->
-    <div class="family-card">
-      <img src="assets/images/80174451_1716469896878756_r.webp" alt="Family 2 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Mohammed Qunoo’s Family:</strong> Mohammed and his family, displaced multiple times, live in a tent under constant bombing...</p>
-        <a href="https://gofund.me/07fa3c81" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Family 3 -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1504.webp" alt="Family 3 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Family 3:</strong> Moamen Selmi, his wife, and their 2-year-old daughter, Maryam, have lost everything...</p>
-        <a href="https://gofund.me/96712a36" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Family 4 -->
-    <div class="family-card">
-      <img src="assets/images/82951687_1727086001558227_r.webp" alt="Family 4 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Haytham’s Family:</strong> Haytham, his wife, and three children endure extreme hardship in overcrowded, unsanitary shelters...</p>
-        <a href="https://gofund.me/e1eaa39e" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Family 5 -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1505.webp" alt="Family 5 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Ghassan’s Family:</strong> Ghassan, his wife Hadeel, and their two daughters have had their lives torn apart by war...</p>
-        <a href="https://gofund.me/4f98e572" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Family 6 -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1506.webp" alt="Family 6 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Yasser’s Family:</strong> Born during war, baby Yasser urgently needs life-saving surgery while his family lives in dire conditions...</p>
-        <a href="https://gofund.me/92ebf568" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Family 7 -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1508.webp" alt="Family 7 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Ali’s Family:</strong> Ali and his family were forced to flee their home, now struggling in refugee camps with no basic necessities...</p>
-        <a href="https://gofund.me/11c7343f" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Family 8 -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1500.webp" alt="Family 8 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Hasan’s Family:</strong> Hasan’s family faces unimaginable loss after their home was destroyed, leaving them to start over...</p>
-        <a href="https://gofund.me/58aa445e" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Family 9 -->
-    <div class="family-card">
-      <img src="assets/images/83890079_1730715001598220_r.webp" alt="Family 9 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Mohammed Zaqout:</strong> Mohammed, a young engineer, dreams of rebuilding his life after fleeing his home six times...</p>
-        <a href="https://gofund.me/832b5736" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Family 10 -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1511.webp" alt="Family 10 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Kristina’s Family:</strong> Kristina’s family, struggling with illness and devastation, needs your help to find safety and rebuild...</p>
-        <a href="https://gofund.me/ef39b705" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
-
-    <!-- Linktree Families -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1509.webp" alt="Linktree Families Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Support Families in Gaza:</strong> Visit the Linktree to explore three stories of families desperately needing your help...</p>
-        <a href="https://linktr.ee/insherah_alhaj?utm_source=linktree_profile_share" target="_blank" class="donate-link">Visit Linktree</a>
-      </div>
-    </div>
-
-    <!-- Family 12 -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1510.webp" alt="Family 12 Image" class="family-image">
-      <div class="family-details">
-        <p><strong>Salah’s Family:</strong> Trapped in Gaza, Salah seeks to evacuate his family to safety and rebuild a life of peace...</p>
-        <a href="https://gofund.me/a8a746c9" target="_blank" class="donate-link">Donate Now</a>
-      </div>
-    </div>
+  <!-- Links Section -->
+  <div class="links-section" id="linksSection" style="display: none;">
+    <a href="https://matwprojectusa.org/appeals/limbs-of-hope?gclsrc=aw.ds&gad_source=1&gclid=CjwKCAiArva5BhBiEiwA-oTnXZqASH-PRl-Wa8LHE8lci8oVQGOZnKB2HBfhSZV6ca9K0aDTssyE0BoCt3wQAvD_BwE" class="link-button" target="_blank">Donate</a>
+    <a href="https://www.aljazeera.com/tag/gaza/" class="link-button" target="_blank">Live Updates on Gaza</a>
+    <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
   </div>
 
   <script>
-    function filterCards() {
-      const searchInput = document.getElementById("search-input").value.toLowerCase();
-      const familyCards = document.querySelectorAll(".family-card");
+    const video = document.getElementById('video');
+    const audioOverlay = document.getElementById('audioOverlay');
+    const startButton = document.getElementById('startButton');
+    const linksSection = document.getElementById('linksSection');
+    let timer;
 
-      familyCards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(searchInput) ? "block" : "none";
-      });
+    // Prevent Navigation
+    let allowExit = false;
+    window.onbeforeunload = (e) => {
+      if (!allowExit) {
+        e.preventDefault();
+        e.returnValue = "You cannot leave this page during the first 45 seconds.";
+      }
+    };
+
+    // Enable Audio and Start Timer
+    startButton.addEventListener('click', () => {
+      video.muted = false;
+      video.play();
+      audioOverlay.style.display = 'none';
+      startTimer();
+    });
+
+    // Timer to Allow Navigation After 45 Seconds
+    function startTimer() {
+      timer = setTimeout(() => {
+        allowExit = true;
+        linksSection.style.display = 'block'; // Show donation links
+        document.body.style.overflow = 'auto'; // Allow scrolling
+      }, 45000);
     }
+
+    // Prevent Video Controls
+    video.controls = false;
+
+    // Ensure Full-Screen Video
+    window.addEventListener('resize', () => {
+      video.style.width = `${window.innerWidth}px`;
+      video.style.height = `${window.innerHeight}px`;
+    });
   </script>
 </body>
 </html>
