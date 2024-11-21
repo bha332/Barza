@@ -85,11 +85,12 @@
       text-decoration: none;
       font-weight: bold;
       border-radius: 5px;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     .link-button:hover {
       background-color: darkorange;
+      transform: scale(1.1);
     }
 
     /* Family Cards Section */
@@ -116,7 +117,8 @@
 
     .family-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 165, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(255, 165, 0.5, 0.5);
     }
 
     .family-card img {
@@ -142,10 +144,18 @@
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
+      transition: background-color 0.3s;
     }
 
     .donate-link:hover {
       background-color: darkorange;
+    }
+
+    /* Countdown Timer */
+    .countdown {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 20px;
     }
 
     .filter-search {
@@ -160,6 +170,24 @@
       border-radius: 5px;
       border: 1px solid orange;
     }
+
+    /* Social Media Sharing */
+    .share-buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .share-buttons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: orange;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .share-buttons a:hover {
+      color: darkorange;
+    }
   </style>
 </head>
 <body>
@@ -167,7 +195,7 @@
   <!-- Video Section -->
   <div class="video-container">
     <video id="video" autoplay muted>
-      <source src="assets/video/5675c48d-ed94-4e6c-a412-8415373c1876.mov" type="video/mp4">
+      <source src="assets/videos/5675c48d-ed94-4e6c-a412-8415373c1876.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -178,11 +206,20 @@
     <button id="startButton">Enable Sound</button>
   </div>
 
+  <!-- Countdown Timer -->
+  <div id="countdown" class="countdown"></div>
+
   <!-- Links Section -->
   <div id="linksSection" class="links-section">
     <a href="https://matwprojectusa.org/appeals/limbs-of-hope" class="link-button" target="_blank">Donate to the Cause</a>
     <a href="https://www.aljazeera.com/tag/gaza/" class="link-button" target="_blank">Live Updates on Gaza</a>
     <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
+  </div>
+
+  <!-- Social Media Sharing -->
+  <div class="share-buttons">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://your-site-link" target="_blank">Share on Facebook</a>
+    <a href="https://twitter.com/intent/tweet?text=Support families in Gaza&url=https://your-site-link" target="_blank">Share on Twitter</a>
   </div>
 
   <!-- Search Filter -->
@@ -206,6 +243,16 @@
   </div>
 
   <script>
+    // Countdown Timer
+    const endTime = new Date("2024-12-31T23:59:59").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = endTime - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("countdown").innerText = `${days} days left to donate!`;
+    }, 1000);
+
+    // Search Functionality
     function filterCards() {
       const searchInput = document.getElementById("search-input").value.toLowerCase();
       const familyCards = document.querySelectorAll(".family-card");
@@ -216,6 +263,7 @@
       });
     }
 
+    // Audio Overlay Functionality
     const video = document.getElementById('video');
     const audioOverlay = document.getElementById('audioOverlay');
     const startButton = document.getElementById('startButton');
