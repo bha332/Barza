@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barza - Hear Their Cries</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTL5FMYPYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NTL5FMYPYP');
+  </script>
+
   <style>
     body {
       background-color: black;
@@ -11,33 +21,22 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     .video-container {
-      position: relative;
-      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
     }
 
     video {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
-    }
-
-    .overlay-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: orange;
-      font-size: 2rem;
-      font-weight: bold;
-      animation: fadeInOut 3s infinite;
-    }
-
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
     }
 
     .audio-overlay {
@@ -46,30 +45,39 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.8);
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 1000;
+      text-align: center;
       font-size: 1.5rem;
-      z-index: 10000;
-      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .audio-overlay button {
+      background-color: orange;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
+      margin-top: 20px;
     }
 
-    .audio-overlay p {
-      margin: 0;
-      padding: 0 20px;
-    }
-
-    .links {
+    .links-section {
       text-align: center;
-      margin: 20px 0;
+      margin: 40px 20px;
+      display: none; /* Hidden by default */
     }
 
     .link-button {
-      display: inline-block;
-      margin: 10px;
+      display: block;
+      margin: 10px 0;
       padding: 10px 20px;
       background-color: orange;
       color: black;
@@ -83,67 +91,118 @@
       background-color: darkorange;
     }
 
-    .awareness {
-      margin: 20px;
-      text-align: center;
-      font-size: 1.2rem;
-      color: orange;
+    .family-section {
+      padding: 20px;
+      background-color: #333;
+      color: white;
+    }
+
+    .family-card {
+      display: flex;
+      align-items: center;
+      margin: 20px auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid orange;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 800px;
+    }
+
+    .family-card img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+
+    .family-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: orange;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .family-card a:hover {
+      background-color: darkorange;
     }
   </style>
 </head>
 <body>
-  <!-- Overlay for Audio -->
-  <div id="audioOverlay" class="audio-overlay">
-    <p class="overlay-text">Tap to start the video with sound</p>
-  </div>
 
   <!-- Video Section -->
   <div class="video-container">
-    <video id="video" autoplay loop>
+    <video id="video" autoplay muted>
       <source src="assets/videos/RQTU9611.MOV" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <div class="overlay-text">Hear Their Cries</div>
+  </div>
+
+  <!-- Audio Overlay -->
+  <div id="audioOverlay" class="audio-overlay">
+    <p>Please tap to start the video with sound. <br>Your interaction is required by the browser.</p>
+    <button id="startButton">Enable Sound</button>
   </div>
 
   <!-- Links Section -->
-  <div class="links">
-    <a href="https://matwprojectusa.org/appeals/limbs-of-hope" class="link-button">Donate</a>
-    <a href="https://www.aljazeera.com/tag/gaza/" class="link-button">Live Updates</a>
-    <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button">Victims' Names</a>
+  <div id="linksSection" class="links-section">
+    <a href="https://matwprojectusa.org/appeals/limbs-of-hope" class="link-button" target="_blank">Donate to the Cause</a>
+    <a href="https://www.aljazeera.com/tag/gaza/" class="link-button" target="_blank">Live Updates on Gaza</a>
+    <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
   </div>
 
-  <!-- Awareness Section -->
-  <div class="awareness">
-    You can help for free by sharing this website and raising awareness.
+  <!-- Family Section -->
+  <div class="family-section">
+    <div class="family-card">
+      <img src="assets/images/family1.jpg" alt="Family 1">
+      <div>
+        <p>Support the Al-Haddad family as they rebuild their lives after the destruction.</p>
+        <a href="https://gofund.me/example1" target="_blank">Donate to the Al-Haddad Family</a>
+      </div>
+    </div>
+    <div class="family-card">
+      <img src="assets/images/family2.jpg" alt="Family 2">
+      <div>
+        <p>Help the Al-Najjar family recover from their tragic losses.</p>
+        <a href="https://gofund.me/example2" target="_blank">Donate to the Al-Najjar Family</a>
+      </div>
+    </div>
   </div>
 
   <script>
     const video = document.getElementById('video');
     const audioOverlay = document.getElementById('audioOverlay');
+    const startButton = document.getElementById('startButton');
+    const linksSection = document.getElementById('linksSection');
+    let allowExit = false;
 
-    // Enable audio and hide the overlay
-    audioOverlay.addEventListener('click', () => {
-      video.muted = false; // Unmute the video
-      video.play(); // Start playing
-      audioOverlay.style.display = 'none'; // Hide the overlay
-    });
-
-    // Prevent navigation until the video ends
-    let videoEnded = false;
-    video.addEventListener('ended', () => {
-      videoEnded = true; // Mark the video as finished
-      window.onbeforeunload = null; // Remove the unload warning
-    });
-
+    // Prevent Navigation
     window.onbeforeunload = (e) => {
-      if (!videoEnded) {
-        const message = "The video is still playing. Are you sure you want to leave?";
-        e.preventDefault(); // Prevent navigation
-        e.returnValue = message; // Display the message
-        return message; // Necessary for some browsers
+      if (!allowExit) {
+        e.preventDefault();
+        e.returnValue = "You cannot leave this page during the first 45 seconds.";
       }
     };
+
+    // Enable Audio
+    startButton.addEventListener('click', () => {
+      video.muted = false;
+      video.play();
+      audioOverlay.style.display = 'none';
+      startTimer();
+    });
+
+    // Allow Navigation After 45 Seconds
+    function startTimer() {
+      setTimeout(() => {
+        allowExit = true;
+        linksSection.style.display = 'block'; // Show links
+      }, 45000); // 45 seconds
+    }
   </script>
 </body>
 </html>
