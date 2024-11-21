@@ -21,9 +21,9 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
     }
 
+    /* Video Section */
     .video-container {
       position: fixed;
       top: 0;
@@ -39,6 +39,7 @@
       object-fit: cover;
     }
 
+    /* Audio Overlay */
     .audio-overlay {
       position: fixed;
       top: 0;
@@ -69,6 +70,7 @@
       margin-top: 20px;
     }
 
+    /* Links Section */
     .links-section {
       text-align: center;
       margin: 40px 20px;
@@ -91,44 +93,73 @@
       background-color: darkorange;
     }
 
+    /* Family Cards Section */
     .family-section {
       padding: 20px;
       background-color: #333;
       color: white;
     }
 
+    .family-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
     .family-card {
-      display: flex;
-      align-items: center;
-      margin: 20px auto;
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid orange;
+      background: white;
+      color: black;
       border-radius: 10px;
-      padding: 20px;
-      max-width: 800px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .family-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .family-card img {
-      width: 150px;
-      height: 150px;
+      width: 100%;
+      height: 200px;
       object-fit: cover;
-      border-radius: 10px;
-      margin-right: 20px;
     }
 
-    .family-card a {
+    .family-card .family-details {
+      padding: 15px;
+    }
+
+    .family-card .family-details p {
+      margin: 0 0 10px;
+    }
+
+    .donate-link {
       display: inline-block;
       margin-top: 10px;
-      padding: 10px 15px;
       background-color: orange;
       color: black;
+      padding: 10px 15px;
       text-decoration: none;
-      font-weight: bold;
       border-radius: 5px;
+      font-weight: bold;
     }
 
-    .family-card a:hover {
+    .donate-link:hover {
       background-color: darkorange;
+    }
+
+    .filter-search {
+      text-align: center;
+      margin: 20px;
+    }
+
+    #search-input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid orange;
     }
   </style>
 </head>
@@ -155,54 +186,60 @@
     <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
   </div>
 
-  <!-- Family Section -->
+  <!-- Search Filter -->
+  <div class="filter-search">
+    <input type="text" id="search-input" placeholder="Search for a family..." oninput="filterCards()">
+  </div>
+
+  <!-- Family Cards Section -->
   <div class="family-section">
-    <div class="family-card">
-      <img src="assets/images/family1.jpg" alt="Family 1">
-      <div>
-        <p>Support the Al-Haddad family as they rebuild their lives after the destruction.</p>
-        <a href="https://gofund.me/example1" target="_blank">Donate to the Al-Haddad Family</a>
+    <div class="family-cards">
+      <!-- Include all 12 family cards here -->
+      <!-- Replace placeholders with your family cards -->
+      <div class="family-card">
+        <img src="assets/images/IMG_1503.webp" alt="Family 1">
+        <div class="family-details">
+          <p><strong>Family 1:</strong> After losing everything to the relentless violence in Gaza...</p>
+          <a href="https://gofund.me/454fcb52" class="donate-link" target="_blank">Donate Now</a>
+        </div>
       </div>
-    </div>
-    <div class="family-card">
-      <img src="assets/images/family2.jpg" alt="Family 2">
-      <div>
-        <p>Help the Al-Najjar family recover from their tragic losses.</p>
-        <a href="https://gofund.me/example2" target="_blank">Donate to the Al-Najjar Family</a>
-      </div>
+      <!-- Add the rest of the families here -->
     </div>
   </div>
 
   <script>
+    function filterCards() {
+      const searchInput = document.getElementById("search-input").value.toLowerCase();
+      const familyCards = document.querySelectorAll(".family-card");
+
+      familyCards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(searchInput) ? "block" : "none";
+      });
+    }
+
     const video = document.getElementById('video');
     const audioOverlay = document.getElementById('audioOverlay');
     const startButton = document.getElementById('startButton');
     const linksSection = document.getElementById('linksSection');
     let allowExit = false;
 
-    // Prevent Navigation
-    window.onbeforeunload = (e) => {
-      if (!allowExit) {
-        e.preventDefault();
-        e.returnValue = "You cannot leave this page during the first 45 seconds.";
-      }
-    };
-
-    // Enable Audio
     startButton.addEventListener('click', () => {
       video.muted = false;
       video.play();
       audioOverlay.style.display = 'none';
-      startTimer();
-    });
-
-    // Allow Navigation After 45 Seconds
-    function startTimer() {
       setTimeout(() => {
         allowExit = true;
-        linksSection.style.display = 'block'; // Show links
-      }, 45000); // 45 seconds
-    }
+        linksSection.style.display = 'block';
+      }, 45000); // 45 seconds delay
+    });
+
+    window.onbeforeunload = (e) => {
+      if (!allowExit) {
+        e.preventDefault();
+        e.returnValue = "The video is still playing.";
+      }
+    };
   </script>
 </body>
 </html>
