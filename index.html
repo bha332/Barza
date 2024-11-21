@@ -206,20 +206,11 @@
     <button id="startButton">Enable Sound</button>
   </div>
 
-  <!-- Countdown Timer -->
-  <div id="countdown" class="countdown"></div>
-
   <!-- Links Section -->
-  <div id="linksSection" class="links-section">
+  <div id="linksSection" class="links-section" style="display:none">
     <a href="https://matwprojectusa.org/appeals/limbs-of-hope" class="link-button" target="_blank">Donate to the Cause</a>
     <a href="https://www.aljazeera.com/tag/gaza/" class="link-button" target="_blank">Live Updates on Gaza</a>
     <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
-  </div>
-
-  <!-- Social Media Sharing -->
-  <div class="share-buttons">
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://your-site-link" target="_blank">Share on Facebook</a>
-    <a href="https://twitter.com/intent/tweet?text=Support families in Gaza&url=https://your-site-link" target="_blank">Share on Twitter</a>
   </div>
 
   <!-- Search Filter -->
@@ -238,20 +229,11 @@
           <a href="https://gofund.me/454fcb52" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
-      <!-- Add remaining family cards here -->
+      <!-- Repeat for other families -->
     </div>
   </div>
 
   <script>
-    // Countdown Timer
-    const endTime = new Date("2024-12-31T23:59:59").getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = endTime - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      document.getElementById("countdown").innerText = `${days} days left to donate!`;
-    }, 1000);
-
     // Search Functionality
     function filterCards() {
       const searchInput = document.getElementById("search-input").value.toLowerCase();
