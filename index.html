@@ -3,91 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barza Campaign</title>
-  
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTL5FMYPYP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-NTL5FMYPYP');
-  </script>
-
+  <title>Barza - Hear Their Cries</title>
   <style>
-    /* Base Styles */
-    body, html {
-      margin: 0;
-      padding: 0;
-      background-color: #b5651d; /* Orange-bronze */
+    body {
+      background-color: black;
       color: white;
       font-family: Arial, sans-serif;
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Video Container */
     .video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
+      position: relative;
+      text-align: center;
     }
 
     video {
       width: 100%;
-      height: 100%;
-      object-fit: cover; /* Prevent cropping */
+      height: auto;
+      object-fit: cover;
     }
 
-    /* Overlay for Audio Interaction */
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: orange;
+      font-size: 2rem;
+      font-weight: bold;
+      animation: fadeInOut 3s infinite;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
     .audio-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.9);
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 1000;
-      text-align: center;
       font-size: 1.5rem;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .audio-overlay button {
-      background-color: #ffcc00;
-      color: black;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    /* Links Section */
-    .links-section {
-      position: absolute;
-      bottom: 10%;
-      left: 50%;
-      transform: translateX(-50%);
+      z-index: 10000;
       text-align: center;
-      z-index: 2000;
+      cursor: pointer;
+    }
+
+    .audio-overlay p {
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    .links {
+      text-align: center;
+      margin: 20px 0;
     }
 
     .link-button {
-      display: block;
-      margin: 10px 0;
+      display: inline-block;
+      margin: 10px;
       padding: 10px 20px;
-      background-color: #ffcc00;
+      background-color: orange;
       color: black;
       text-decoration: none;
       font-weight: bold;
@@ -96,117 +80,70 @@
     }
 
     .link-button:hover {
-      background-color: #e6b800;
+      background-color: darkorange;
     }
 
-    /* Family Cards */
-    .family-section {
-      padding: 20px;
-      background-color: #b5651d; /* Orange-bronze */
-      color: white;
-    }
-
-    .family-card {
-      display: flex;
-      align-items: center;
-      margin: 20px 0;
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid #ffcc00;
-      border-radius: 10px;
-      padding: 20px;
-    }
-
-    .family-card img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-right: 20px;
-    }
-
-    .family-card a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #ffcc00;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-
-    .family-card a:hover {
-      background-color: #e6b800;
+    .awareness {
+      margin: 20px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: orange;
     }
   </style>
 </head>
 <body>
+  <!-- Overlay for Audio -->
+  <div id="audioOverlay" class="audio-overlay">
+    <p class="overlay-text">Tap to start the video with sound</p>
+  </div>
 
   <!-- Video Section -->
   <div class="video-container">
-    <video id="video" autoplay muted>
+    <video id="video" autoplay loop>
       <source src="assets/videos/RQTU9611.MOV" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-  </div>
-
-  <!-- Audio Overlay -->
-  <div class="audio-overlay" id="audioOverlay">
-    <p>Please tap to start the video with sound. <br>Your interaction is required by the browser.</p>
-    <button id="startButton">Enable Sound</button>
+    <div class="overlay-text">Hear Their Cries</div>
   </div>
 
   <!-- Links Section -->
-  <div class="links-section" id="linksSection" style="display: none;">
-    <a href="https://matwprojectusa.org/appeals/limbs-of-hope?gclsrc=aw.ds&gad_source=1&gclid=CjwKCAiArva5BhBiEiwA-oTnXZqASH-PRl-Wa8LHE8lci8oVQGOZnKB2HBfhSZV6ca9K0aDTssyE0BoCt3wQAvD_BwE" class="link-button" target="_blank">Donate</a>
-    <a href="https://www.aljazeera.com/tag/gaza/" class="link-button" target="_blank">Live Updates on Gaza</a>
-    <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
+  <div class="links">
+    <a href="https://matwprojectusa.org/appeals/limbs-of-hope" class="link-button">Donate</a>
+    <a href="https://www.aljazeera.com/tag/gaza/" class="link-button">Live Updates</a>
+    <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button">Victims' Names</a>
   </div>
 
-  <!-- Family Cards Section -->
-  <div class="family-section">
-    <!-- Add your family cards here -->
-    <div class="family-card">
-      <img src="assets/images/IMG_1503.webp" alt="Family Image">
-      <div>
-        <p>After losing everything to the relentless violence in Gaza, this family faces daily struggles to survive.</p>
-        <a href="https://gofund.me/454fcb52" target="_blank">Support Family</a>
-      </div>
-    </div>
-    <!-- Add more cards as needed -->
+  <!-- Awareness Section -->
+  <div class="awareness">
+    You can help for free by sharing this website and raising awareness.
   </div>
 
   <script>
     const video = document.getElementById('video');
     const audioOverlay = document.getElementById('audioOverlay');
-    const startButton = document.getElementById('startButton');
-    const linksSection = document.getElementById('linksSection');
-    let timer;
 
-    // Prevent Navigation
-    let allowExit = false;
-    window.onbeforeunload = (e) => {
-      if (!allowExit) {
-        e.preventDefault();
-        e.returnValue = "You cannot leave this page during the first 45 seconds.";
-      }
-    };
-
-    // Enable Audio and Start Timer
-    startButton.addEventListener('click', () => {
-      video.muted = false;
-      video.play();
-      audioOverlay.style.display = 'none';
-      startTimer();
+    // Enable audio and hide the overlay
+    audioOverlay.addEventListener('click', () => {
+      video.muted = false; // Unmute the video
+      video.play(); // Start playing
+      audioOverlay.style.display = 'none'; // Hide the overlay
     });
 
-    // Timer to Allow Navigation After 45 Seconds
-    function startTimer() {
-      timer = setTimeout(() => {
-        allowExit = true;
-        linksSection.style.display = 'block'; // Show donation links
-      }, 45000);
-    }
+    // Prevent navigation until the video ends
+    let videoEnded = false;
+    video.addEventListener('ended', () => {
+      videoEnded = true; // Mark the video as finished
+      window.onbeforeunload = null; // Remove the unload warning
+    });
+
+    window.onbeforeunload = (e) => {
+      if (!videoEnded) {
+        const message = "The video is still playing. Are you sure you want to leave?";
+        e.preventDefault(); // Prevent navigation
+        e.returnValue = message; // Display the message
+        return message; // Necessary for some browsers
+      }
+    };
   </script>
 </body>
 </html>
