@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barza Campaign</title>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTL5FMYPYP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NTL5FMYPYP');
+  </script>
+
   <style>
     /* Base Styles */
     body, html {
@@ -12,7 +23,7 @@
       background-color: #b5651d; /* Orange-bronze */
       color: white;
       font-family: Arial, sans-serif;
-      overflow: hidden; /* Prevent scrolling during video */
+      overflow-x: hidden;
     }
 
     /* Video Container */
@@ -88,11 +99,44 @@
       background-color: #e6b800;
     }
 
-    /* Prevent Navigation */
-    @media (pointer: coarse) {
-      body {
-        touch-action: none;
-      }
+    /* Family Cards */
+    .family-section {
+      padding: 20px;
+      background-color: #b5651d; /* Orange-bronze */
+      color: white;
+    }
+
+    .family-card {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ffcc00;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .family-card img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+
+    .family-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #ffcc00;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .family-card a:hover {
+      background-color: #e6b800;
     }
   </style>
 </head>
@@ -117,6 +161,19 @@
     <a href="https://matwprojectusa.org/appeals/limbs-of-hope?gclsrc=aw.ds&gad_source=1&gclid=CjwKCAiArva5BhBiEiwA-oTnXZqASH-PRl-Wa8LHE8lci8oVQGOZnKB2HBfhSZV6ca9K0aDTssyE0BoCt3wQAvD_BwE" class="link-button" target="_blank">Donate</a>
     <a href="https://www.aljazeera.com/tag/gaza/" class="link-button" target="_blank">Live Updates on Gaza</a>
     <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
+  </div>
+
+  <!-- Family Cards Section -->
+  <div class="family-section">
+    <!-- Add your family cards here -->
+    <div class="family-card">
+      <img src="assets/images/IMG_1503.webp" alt="Family Image">
+      <div>
+        <p>After losing everything to the relentless violence in Gaza, this family faces daily struggles to survive.</p>
+        <a href="https://gofund.me/454fcb52" target="_blank">Support Family</a>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
   </div>
 
   <script>
@@ -148,18 +205,8 @@
       timer = setTimeout(() => {
         allowExit = true;
         linksSection.style.display = 'block'; // Show donation links
-        document.body.style.overflow = 'auto'; // Allow scrolling
       }, 45000);
     }
-
-    // Prevent Video Controls
-    video.controls = false;
-
-    // Ensure Full-Screen Video
-    window.addEventListener('resize', () => {
-      video.style.width = `${window.innerWidth}px`;
-      video.style.height = `${window.innerHeight}px`;
-    });
   </script>
 </body>
 </html>
