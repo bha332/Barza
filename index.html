@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barza - Hear Their Cries</title>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTL5FMYPYP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-NTL5FMYPYP');
-  </script>
-
   <style>
     body {
       background-color: black;
@@ -38,6 +29,37 @@
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+    }
+
+    /* Audio Overlay */
+    .audio-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .audio-overlay button {
+      background-color: orange;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
     }
 
     /* Links Section */
@@ -134,8 +156,14 @@
     </video>
   </div>
 
+  <!-- Audio Overlay -->
+  <div id="audioOverlay" class="audio-overlay">
+    <p>Please tap to start the video with sound. <br>Your interaction is required by the browser.</p>
+    <button id="startButton">Enable Sound</button>
+  </div>
+
   <!-- Links Section -->
-  <div class="links-section">
+  <div id="linksSection" class="links-section">
     <a href="https://matwprojectusa.org/appeals/limbs-of-hope" class="link-button" target="_blank">Donate to the Cause</a>
     <a href="https://www.aljazeera.com/tag/gaza/" class="link-button" target="_blank">Live Updates on Gaza</a>
     <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
@@ -144,25 +172,29 @@
   <!-- Family Cards Section -->
   <div class="family-section">
     <div class="family-grid">
-      <!-- Family 1 -->
+      <!-- Add All 12 Families -->
       <div class="family-card">
         <img src="assets/images/IMG_1503.webp" alt="Family 1">
         <div class="family-details">
-          <p><strong>Family 1:</strong> After losing everything...</p>
+          <p><strong>Family 1:</strong> Displaced from their home...</p>
           <a href="https://gofund.me/454fcb52" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
-      <!-- Family 2 -->
-      <div class="family-card">
-        <img src="assets/images/IMG_1504.webp" alt="Family 2">
-        <div class="family-details">
-          <p><strong>Family 2:</strong> Forced to flee multiple times...</p>
-          <a href="https://gofund.me/07fa3c81" class="donate-link" target="_blank">Donate Now</a>
-        </div>
-      </div>
-      <!-- Add all 12 families similarly -->
+      <!-- Add the remaining 11 families here -->
     </div>
   </div>
 
+  <script>
+    // Audio Overlay Functionality
+    const video = document.getElementById('video');
+    const audioOverlay = document.getElementById('audioOverlay');
+    const startButton = document.getElementById('startButton');
+
+    startButton.addEventListener('click', () => {
+      video.muted = false;
+      video.play();
+      audioOverlay.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
