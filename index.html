@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barza - Hear Their Cries</title>
-
   <style>
-    /* General Styles */
     body {
       background-color: #121212;
       color: #f1f1f1;
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
     }
 
     h1, h2 {
@@ -40,7 +37,7 @@
     video {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Ensures the video is fully visible without cropping */
+      object-fit: contain;
     }
 
     .overlay-text {
@@ -150,22 +147,6 @@
       border-top: 2px solid #ffcc00;
       font-size: 0.9rem;
     }
-
-    .audio-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      z-index: 1000;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
@@ -177,7 +158,6 @@
       Your browser does not support the video tag.
     </video>
     <div class="overlay-text">Hear Their Cries</div>
-    <div id="audioOverlay" class="audio-overlay">Tap to enable audio</div>
   </div>
 
   <!-- Links Section -->
@@ -192,34 +172,57 @@
   <div class="family-section">
     <h1>Meet the Families</h1>
     <div class="family-grid">
-      <!-- Loop through families -->
+      <!-- Add Family Cards Here -->
       <div class="family-card">
         <img src="assets/images/IMG_1503.webp" alt="Family 1">
         <div class="family-details">
-          <p><strong>Family 1:</strong> Displaced and seeking stability for their children.</p>
+          <p><strong>Family 1:</strong> After losing everything to violence, this family seeks stability.</p>
           <a href="https://gofund.me/454fcb52" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
-      <!-- Repeat for all 12 families -->
-      <!-- Add Family Cards Here -->
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Barza Campaign | Created to Raise Awareness and Support Families in Need</p>
-  </footer>
-
-  <script>
-    const video = document.getElementById('video');
-    const audioOverlay = document.getElementById('audioOverlay');
-
-    audioOverlay.addEventListener('click', () => {
-      video.muted = false;
-      video.play();
-      audioOverlay.style.display = 'none';
-    });
-  </script>
-
-</body>
-</html>
+      <div class="family-card">
+        <img src="assets/images/80174451_1716469896878756_r.webp" alt="Family 2">
+        <div class="family-details">
+          <p><strong>Family 2:</strong> Mohammed Qunoo’s family faces constant bombing and hardship.</p>
+          <a href="https://gofund.me/07fa3c81" class="donate-link" target="_blank">Donate Now</a>
+        </div>
+      </div>
+      <div class="family-card">
+        <img src="assets/images/IMG_1504.webp" alt="Family 3">
+        <div class="family-details">
+          <p><strong>Family 3:</strong> Moamen Selmi and his family struggle in harsh conditions.</p>
+          <a href="https://gofund.me/96712a36" class="donate-link" target="_blank">Donate Now</a>
+        </div>
+      </div>
+      <div class="family-card">
+        <img src="assets/images/82951687_1727086001558227_r.webp" alt="Family 4">
+        <div class="family-details">
+          <p><strong>Family 4:</strong> Haytham’s family seeks urgent help for food and medical care.</p>
+          <a href="https://gofund.me/e1eaa39e" class="donate-link" target="_blank">Donate Now</a>
+        </div>
+      </div>
+      <div class="family-card">
+        <img src="assets/images/IMG_1505.webp" alt="Family 5">
+        <div class="family-details">
+          <p><strong>Family 5:</strong> Ghassan’s family dreams of escaping to safety.</p>
+          <a href="https://gofund.me/4f98e572" class="donate-link" target="_blank">Donate Now</a>
+        </div>
+      </div>
+      <div class="family-card">
+        <img src="assets/images/IMG_1506.webp" alt="Family 6">
+        <div class="family-details">
+          <p><strong>Family 6:</strong> Baby Yasser needs life-saving surgery and family relocation.</p>
+          <a href="https://gofund.me/92ebf568" class="donate-link" target="_blank">Donate Now</a>
+        </div>
+      </div>
+      <div class="family-card">
+        <img src="assets/images/IMG_1508.webp" alt="Family 7">
+        <div class="family-details">
+          <p><strong>Family 7:</strong> Ali’s family struggles to survive in refugee camps.</p>
+          <a href="https://gofund.me/11c7343f" class="donate-link" target="_blank">Donate Now</a>
+        </div>
+      </div>
+      <div class="family-card">
+        <img src="assets/images/IMG_1500.webp" alt="Family 8">
+        <div class="family-details">
+          <p><strong>Family 8:</strong> Hasan’s family seeks safety after repeated devastation.</p>
