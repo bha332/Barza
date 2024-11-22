@@ -18,11 +18,18 @@
     .video-container {
       position: relative;
       text-align: center;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh; /* Video occupies 80% of viewport height */
+      overflow: hidden;
     }
 
     video {
-      width: 100%;
-      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* Ensures the video fits without cropping or stretching */
     }
 
     .overlay-text {
@@ -172,7 +179,7 @@
       <div class="family-card">
         <img src="assets/images/82951687_1727086001558227_r.webp" alt="Family 4">
         <div class="family-details">
-          <p><strong>Haytham’s Family:</strong> Facing unsanitary shelters, children need medical care...</p>
+          <p><strong>Haytham’s Family:</strong> Facing hardship, needs support for clean water...</p>
           <a href="https://gofund.me/e1eaa39e" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
@@ -181,7 +188,7 @@
       <div class="family-card">
         <img src="assets/images/IMG_1505.webp" alt="Family 5">
         <div class="family-details">
-          <p><strong>Ghassan’s Family:</strong> Displaced and struggling, daughters carry heavy burdens...</p>
+          <p><strong>Ghassan’s Family:</strong> Displaced and suffering, needs safety and care...</p>
           <a href="https://gofund.me/4f98e572" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
@@ -190,7 +197,7 @@
       <div class="family-card">
         <img src="assets/images/IMG_1506.webp" alt="Family 6">
         <div class="family-details">
-          <p><strong>Yasser’s Family:</strong> Baby Yasser urgently needs life-saving surgery...</p>
+          <p><strong>Yasser’s Family:</strong> Baby Yasser needs life-saving surgery...</p>
           <a href="https://gofund.me/92ebf568" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
@@ -199,7 +206,7 @@
       <div class="family-card">
         <img src="assets/images/IMG_1508.webp" alt="Family 7">
         <div class="family-details">
-          <p><strong>Ali Abu Hussein’s Family:</strong> Struggling in refugee camps, needs basic necessities...</p>
+          <p><strong>Ali’s Family:</strong> Living in refugee camps, struggling to survive...</p>
           <a href="https://gofund.me/11c7343f" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
@@ -208,7 +215,7 @@
       <div class="family-card">
         <img src="assets/images/IMG_1500.webp" alt="Family 8">
         <div class="family-details">
-          <p><strong>Hasan Alaloul’s Family:</strong> Displaced again, struggling for necessities...</p>
+          <p><strong>Hasan’s Family:</strong> Seeking safety after multiple losses...</p>
           <a href="https://gofund.me/58aa445e" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
@@ -217,7 +224,7 @@
       <div class="family-card">
         <img src="assets/images/83890079_1730715001598220_r.webp" alt="Family 9">
         <div class="family-details">
-          <p><strong>Mohammed Zaqout:</strong> Forced to flee six times, dreams of rebuilding...</p>
+          <p><strong>Mohammed Zaqout:</strong> A young engineer rebuilding his family’s life...</p>
           <a href="https://gofund.me/832b5736" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
@@ -226,7 +233,7 @@
       <div class="family-card">
         <img src="assets/images/IMG_1511.webp" alt="Family 10">
         <div class="family-details">
-          <p><strong>Kristina’s Family:</strong> Struggling with illness, needs medical care...</p>
+          <p><strong>Kristina’s Family:</strong> Struggling to find safety and medical care...</p>
           <a href="https://gofund.me/ef39b705" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
@@ -235,8 +242,8 @@
       <div class="family-card">
         <img src="assets/images/IMG_1509.webp" alt="Family 11">
         <div class="family-details">
-          <p><strong>Support Families in Gaza:</strong> Visit Linktree to help more families...</p>
-          <a href="https://linktr.ee/insherah_alhaj?utm_source=linktree_profile_share" class="donate-link" target="_blank">Visit Linktree</a>
+          <p><strong>Linktree Families:</strong> Explore stories of families in need...</p>
+          <a href="https://linktr.ee/insherah_alhaj" class="donate-link" target="_blank">Visit Linktree</a>
         </div>
       </div>
 
@@ -244,7 +251,7 @@
       <div class="family-card">
         <img src="assets/images/IMG_1510.webp" alt="Family 12">
         <div class="family-details">
-          <p><strong>Salah Jabr’s Family:</strong> Seeking safety, needs evacuation support...</p>
+          <p><strong>Salah’s Family:</strong> Urgently needs help to evacuate to safety...</p>
           <a href="https://gofund.me/a8a746c9" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
