@@ -122,7 +122,9 @@
             // Play video automatically with muted sound
             const video = document.querySelector('video');
             video.muted = true;
-            video.play();
+            video.play().catch((error) => {
+                console.error('Autoplay failed:', error);
+            });
         });
     </script>
 </head>
@@ -214,4 +216,3 @@
             <div class="card-content">
                 <h3>Hasan Alaloul's Family</h3>
                 <p>Struggling after repeated bombings, Hasan's family needs urgent support to rebuild their lives.</p>
-                <a href="https://gofund.me/58aa445e" target="_
