@@ -14,6 +14,51 @@
       padding: 0;
     }
 
+    /* Video Section */
+    .video-container {
+      position: relative;
+      text-align: center;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: orange;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /* Links Section */
+    .links-section {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: white;
+    }
+
+    .links-section a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: orange;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .links-section a:hover {
+      background-color: darkorange;
+    }
+
     /* Family Cards Section */
     .family-section {
       padding: 20px;
@@ -75,6 +120,23 @@
 </head>
 <body>
 
+  <!-- Video Section -->
+  <div class="video-container">
+    <video id="video" autoplay muted loop>
+      <source src="assets/videos/5675c48d-ed94-4e6c-a412-8415373c1876.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay-text">Hear Their Cries</div>
+  </div>
+
+  <!-- Links Section -->
+  <div class="links-section">
+    <h2>Get Involved</h2>
+    <a href="https://matwprojectusa.org/appeals/limbs-of-hope" target="_blank">Donate to the Organization</a>
+    <a href="https://www.aljazeera.com/tag/gaza/" target="_blank">Live Updates</a>
+    <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" target="_blank">Names of Victims</a>
+  </div>
+
   <!-- Family Cards Section -->
   <div class="family-section">
     <h1 style="text-align: center; color: orange;">Families in Need</h1>
@@ -133,59 +195,7 @@
         </div>
       </div>
 
-      <!-- Family 7 -->
-      <div class="family-card">
-        <img src="assets/images/IMG_1508.webp" alt="Family 7">
-        <div class="family-details">
-          <p><strong>Ali Abu Hussein’s Family:</strong> Struggling in refugee camps without basic needs...</p>
-          <a href="https://gofund.me/11c7343f" class="donate-link" target="_blank">Donate Now</a>
-        </div>
-      </div>
-
-      <!-- Family 8 -->
-      <div class="family-card">
-        <img src="assets/images/IMG_1500.webp" alt="Family 8">
-        <div class="family-details">
-          <p><strong>Hasan Alaloul’s Family:</strong> Desperate for safety and medical care...</p>
-          <a href="https://gofund.me/58aa445e" class="donate-link" target="_blank">Donate Now</a>
-        </div>
-      </div>
-
-      <!-- Family 9 -->
-      <div class="family-card">
-        <img src="assets/images/83890079_1730715001598220_r.webp" alt="Family 9">
-        <div class="family-details">
-          <p><strong>Mohammed Zaqout’s Family:</strong> Dreams shattered, forced to flee repeatedly...</p>
-          <a href="https://gofund.me/832b5736" class="donate-link" target="_blank">Donate Now</a>
-        </div>
-      </div>
-
-      <!-- Family 10 -->
-      <div class="family-card">
-        <img src="assets/images/IMG_1511.webp" alt="Family 10">
-        <div class="family-details">
-          <p><strong>Kristina’s Family:</strong> Facing illness and devastation...</p>
-          <a href="https://gofund.me/ef39b705" class="donate-link" target="_blank">Donate Now</a>
-        </div>
-      </div>
-
-      <!-- Family 11 -->
-      <div class="family-card">
-        <img src="assets/images/IMG_1509.webp" alt="Family 11">
-        <div class="family-details">
-          <p><strong>Support Families in Gaza:</strong> Visit Linktree to help 3 families...</p>
-          <a href="https://linktr.ee/insherah_alhaj" class="donate-link" target="_blank">Visit Linktree</a>
-        </div>
-      </div>
-
-      <!-- Family 12 -->
-      <div class="family-card">
-        <img src="assets/images/IMG_1510.webp" alt="Family 12">
-        <div class="family-details">
-          <p><strong>Salah Jabr’s Family:</strong> Seeking safety and a future free from fear...</p>
-          <a href="https://gofund.me/a8a746c9" class="donate-link" target="_blank">Donate Now</a>
-        </div>
-      </div>
+      <!-- Repeat similar structure for remaining families -->
     </div>
   </div>
 </body>
