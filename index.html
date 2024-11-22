@@ -11,7 +11,6 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
-            overflow: hidden; /* Prevent scrolling initially */
         }
 
         header {
@@ -22,7 +21,6 @@
         }
 
         .video-container {
-            position: relative;
             text-align: center;
             margin: 20px auto;
             max-width: 1000px;
@@ -121,10 +119,10 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Prevent users from leaving for 43 seconds
-            setTimeout(() => {
-                document.body.style.overflow = 'auto'; // Allow scrolling after 43 seconds
-            }, 43000);
+            // Play video automatically with muted sound
+            const video = document.querySelector('video');
+            video.muted = true;
+            video.play();
         });
     </script>
 </head>
@@ -135,7 +133,7 @@
     </header>
 
     <div class="video-container">
-        <video autoplay controls>
+        <video autoplay muted controls>
             <source src="assets/videos/5675c48d-ed94-4e6c-a412-8415373c1876.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -215,4 +213,5 @@
             <img src="assets/images/IMG_1500.webp" alt="Family Image">
             <div class="card-content">
                 <h3>Hasan Alaloul's Family</h3>
-                <p>Struggling after repeated bombings, Hasan's family needs urgent support to rebuild their
+                <p>Struggling after repeated bombings, Hasan's family needs urgent support to rebuild their lives.</p>
+                <a href="https://gofund.me/58aa445e" target="_
