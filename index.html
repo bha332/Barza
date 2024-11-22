@@ -40,37 +40,6 @@
       object-fit: contain;
     }
 
-    /* Audio Overlay */
-    .audio-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      text-align: center;
-      font-size: 1.5rem;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .audio-overlay button {
-      background-color: orange;
-      color: black;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
     /* Links Section */
     .links-section {
       text-align: center;
@@ -153,20 +122,6 @@
     .donate-link:hover {
       background-color: darkorange;
     }
-
-    /* Search Bar */
-    .filter-search {
-      text-align: center;
-      margin: 20px;
-    }
-
-    #search-input {
-      padding: 10px;
-      width: 300px;
-      font-size: 16px;
-      border-radius: 5px;
-      border: 1px solid orange;
-    }
   </style>
 </head>
 <body>
@@ -179,28 +134,17 @@
     </video>
   </div>
 
-  <!-- Audio Overlay -->
-  <div id="audioOverlay" class="audio-overlay">
-    <p>Please tap to start the video with sound. <br>Your interaction is required by the browser.</p>
-    <button id="startButton">Enable Sound</button>
-  </div>
-
   <!-- Links Section -->
-  <div id="linksSection" class="links-section">
+  <div class="links-section">
     <a href="https://matwprojectusa.org/appeals/limbs-of-hope" class="link-button" target="_blank">Donate to the Cause</a>
     <a href="https://www.aljazeera.com/tag/gaza/" class="link-button" target="_blank">Live Updates on Gaza</a>
     <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" class="link-button" target="_blank">Names of Victims</a>
   </div>
 
-  <!-- Search Filter -->
-  <div class="filter-search">
-    <input type="text" id="search-input" placeholder="Search for a family..." oninput="filterCards()">
-  </div>
-
   <!-- Family Cards Section -->
   <div class="family-section">
     <div class="family-grid">
-      <!-- Family Cards -->
+      <!-- Family 1 -->
       <div class="family-card">
         <img src="assets/images/IMG_1503.webp" alt="Family 1">
         <div class="family-details">
@@ -208,6 +152,7 @@
           <a href="https://gofund.me/454fcb52" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
+      <!-- Family 2 -->
       <div class="family-card">
         <img src="assets/images/IMG_1504.webp" alt="Family 2">
         <div class="family-details">
@@ -215,45 +160,9 @@
           <a href="https://gofund.me/07fa3c81" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
-      <!-- Repeat for other families -->
+      <!-- Add all 12 families similarly -->
     </div>
   </div>
 
-  <script>
-    // Audio Overlay Functionality
-    const video = document.getElementById('video');
-    const audioOverlay = document.getElementById('audioOverlay');
-    const startButton = document.getElementById('startButton');
-    const linksSection = document.getElementById('linksSection');
-    let allowExit = false;
-
-    startButton.addEventListener('click', () => {
-      video.muted = false;
-      video.play();
-      audioOverlay.style.display = 'none';
-      setTimeout(() => {
-        allowExit = true;
-        linksSection.style.display = 'block';
-      }, 45000); // 45 seconds delay
-    });
-
-    window.onbeforeunload = (e) => {
-      if (!allowExit) {
-        e.preventDefault();
-        e.returnValue = "The video is still playing.";
-      }
-    };
-
-    // Search Functionality
-    function filterCards() {
-      const searchInput = document.getElementById("search-input").value.toLowerCase();
-      const familyCards = document.querySelectorAll(".family-card");
-
-      familyCards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(searchInput) ? "block" : "none";
-      });
-    }
-  </script>
 </body>
 </html>
