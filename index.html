@@ -16,7 +16,7 @@
         header {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            background-color: #cd7f32; /* Orange bronze color */
             color: white;
         }
 
@@ -30,6 +30,7 @@
             width: 100%;
             height: auto;
             object-fit: contain;
+            autoplay: true;
         }
 
         .cards {
@@ -81,13 +82,13 @@
             margin-top: 10px;
             text-decoration: none;
             color: white;
-            background: #007bff;
+            background: #cd7f32; /* Orange bronze color */
             padding: 10px 15px;
             border-radius: 5px;
         }
 
         .card-content a:hover {
-            background: #0056b3;
+            background: #b76b2c;
         }
 
         footer {
@@ -108,19 +109,20 @@
         .cta-links a {
             text-decoration: none;
             color: white;
-            background: #28a745;
+            background: #cd7f32; /* Orange bronze color */
             padding: 10px 20px;
             border-radius: 5px;
         }
 
         .cta-links a:hover {
-            background: #1e7e34;
+            background: #b76b2c;
         }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Play video with sound once clicked
             const video = document.querySelector('video');
+            video.muted = true;
+            video.autoplay = true;
             video.play().catch(error => console.error('Autoplay failed:', error));
 
             video.addEventListener('click', () => {
@@ -215,6 +217,3 @@
 
         <div class="card">
             <img src="assets/images/IMG_1500.webp" alt="Family Image">
-            <div class="card-content">
-                <h3>Hasan Alaloul's Family</h3>
-                <p>Struggling after repeated bombings
