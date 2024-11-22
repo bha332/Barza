@@ -40,7 +40,7 @@
     video {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Ensures the video is fully visible without distortion */
+      object-fit: contain; /* Ensures the video is fully visible without cropping */
     }
 
     .overlay-text {
@@ -150,17 +150,34 @@
       border-top: 2px solid #ffcc00;
       font-size: 0.9rem;
     }
+
+    .audio-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      z-index: 1000;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
   <!-- Video Section -->
   <div class="video-container">
-    <video id="video" autoplay muted loop>
+    <video id="video" autoplay loop muted>
       <source src="assets/videos/5675c48d-ed94-4e6c-a412-8415373c1876.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div class="overlay-text">Hear Their Cries</div>
+    <div id="audioOverlay" class="audio-overlay">Tap to enable audio</div>
   </div>
 
   <!-- Links Section -->
@@ -175,32 +192,16 @@
   <div class="family-section">
     <h1>Meet the Families</h1>
     <div class="family-grid">
-      <!-- Family 1 -->
+      <!-- Loop through families -->
       <div class="family-card">
         <img src="assets/images/IMG_1503.webp" alt="Family 1">
         <div class="family-details">
-          <p><strong>Family 1:</strong> Lost everything and seeks a stable life for their children.</p>
+          <p><strong>Family 1:</strong> Displaced and seeking stability for their children.</p>
           <a href="https://gofund.me/454fcb52" class="donate-link" target="_blank">Donate Now</a>
         </div>
       </div>
-      <!-- Family 2 -->
-      <div class="family-card">
-        <img src="assets/images/80174451_1716469896878756_r.webp" alt="Family 2">
-        <div class="family-details">
-          <p><strong>Mohammed Qunoo’s Family:</strong> Displaced multiple times, living in a tent.</p>
-          <a href="https://gofund.me/07fa3c81" class="donate-link" target="_blank">Donate Now</a>
-        </div>
-      </div>
-      <!-- Family 3 -->
-      <div class="family-card">
-        <img src="assets/images/IMG_1504.webp" alt="Family 3">
-        <div class="family-details">
-          <p><strong>Moamen Selmi’s Family:</strong> Struggling to survive harsh conditions.</p>
-          <a href="https://gofund.me/96712a36" class="donate-link" target="_blank">Donate Now</a>
-        </div>
-      </div>
-      <!-- Repeat for all families -->
-      <!-- Family 4 to 12 -->
+      <!-- Repeat for all 12 families -->
+      <!-- Add Family Cards Here -->
     </div>
   </div>
 
@@ -208,6 +209,17 @@
   <footer>
     <p>&copy; 2024 Barza Campaign | Created to Raise Awareness and Support Families in Need</p>
   </footer>
+
+  <script>
+    const video = document.getElementById('video');
+    const audioOverlay = document.getElementById('audioOverlay');
+
+    audioOverlay.addEventListener('click', () => {
+      video.muted = false;
+      video.play();
+      audioOverlay.style.display = 'none';
+    });
+  </script>
 
 </body>
 </html>
