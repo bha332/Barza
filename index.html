@@ -119,11 +119,13 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Play video automatically with muted sound
+            // Play video with sound once clicked
             const video = document.querySelector('video');
-            video.muted = true;
-            video.play().catch((error) => {
-                console.error('Autoplay failed:', error);
+            video.play().catch(error => console.error('Autoplay failed:', error));
+
+            video.addEventListener('click', () => {
+                video.muted = false;
+                video.play();
             });
         });
     </script>
@@ -215,4 +217,4 @@
             <img src="assets/images/IMG_1500.webp" alt="Family Image">
             <div class="card-content">
                 <h3>Hasan Alaloul's Family</h3>
-                <p>Struggling after repeated bombings, Hasan's family needs urgent support to rebuild their lives.</p>
+                <p>Struggling after repeated bombings
