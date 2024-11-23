@@ -82,10 +82,14 @@
             justify-content: center;
             gap: 20px;
             padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .card {
-            width: 300px;
+            width: calc(33.333% - 20px);
+            max-width: 300px;
+            min-width: 280px;
             border: none;
             border-radius: 12px;
             background: #fff;
@@ -215,7 +219,8 @@
 
     <section>
         <h2 style="text-align: center; margin: 20px 0;">If You Want to Directly Support Families</h2>
-     <div class="card">
+        <div class="cards">
+      <div class="card">
     <img src="assets/images/IMG_1503.webp" alt="Displaced Family">
     <div class="card-content">
         <h3>Displaced Family</h3>
@@ -323,6 +328,7 @@
     </div>
 </div>
 
+        </div>
     </section>
 
     <footer>
