@@ -6,6 +6,11 @@
     <title>Hear Their Cries</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+        }
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -16,6 +21,7 @@
         }
 
         header {
+            background: linear-gradient(to right, #000000, #007a3d, #ffffff, #bf0a30); /* Palestinian flag */
             text-align: center;
             padding: 20px;
             background: linear-gradient(to right, #000000, #007a3d, #ffffff, #bf0a30);
@@ -128,6 +134,8 @@
         }
 
         footer {
+            background-image: url('assets/images/palestinian_flag_pattern.png');
+            background-size: cover;
             text-align: center;
             padding: 20px;
             background-color: #000000;
