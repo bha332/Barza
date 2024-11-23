@@ -27,7 +27,7 @@
         header {
             text-align: center;
             padding: 80px 20px;
-            background: linear-gradient(to right, #000000, #007a3d, #ffffff, #bf0a30);
+            background: linear-gradient(to bottom, #000000 25%, #007a3d 25%, #ffffff 25%, #bf0a30 25%);
             color: white;
             position: relative;
         }
@@ -100,22 +100,25 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .card {
-            width: calc(33.333% - 30px);
+            width: calc(33.333% - 20px);
             max-width: 300px;
             min-width: 280px;
             border: none;
-            border-radius: 15px;
+            border-radius: 12px;
             background: #fff;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -191,32 +194,6 @@
             transform: scale(1.1);
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.querySelector('video');
-            video.muted = true;
-            video.autoplay = true;
-            video.play().catch(error => console.error('Autoplay failed:', error));
-
-            video.addEventListener('click', () => {
-                video.muted = false;
-                video.play();
-            });
-
-            const backToTop = document.createElement('button');
-            backToTop.textContent = '↑';
-            backToTop.classList.add('back-to-top');
-            document.body.appendChild(backToTop);
-
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            window.addEventListener('scroll', () => {
-                backToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -233,8 +210,14 @@
     </div>
 
     <div class="cta-links">
-        <a href="https://matwprojectusa.org/appeals/
-<div class="card">
+        <a href="https://matwprojectusa.org/appeals/" target="_blank">Donate to Organization</a>
+        <a href="https://www.aljazeera.com/tag/gaza/" target="_blank">Live Updates</a>
+        <a href="https://www.aljazeera.com/program/newsfeed/2024/10/7/the-names-of-those-killed-in-israels-genocide-in-gaza" target="_blank">Victims' Names</a>
+    </div>
+
+    <section>
+        <h2 style="text-align: center; margin: 20px 0;">If You Want to Directly Support Families</h2>
+      <div class="card">
     <img src="assets/images/IMG_1503.webp" alt="Displaced Family">
     <div class="card-content">
         <h3>Displaced Family</h3>
@@ -340,7 +323,10 @@
         <p>Trapped in Gaza, Salah's family needs help to evacuate and rebuild their lives in safety.</p>
         <a href="https://gofund.me/a8a746c9" target="_blank">Donate Now</a>
     </div>
-</section>
+</div>
+
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2024 Barza Campaign. All rights reserved.</p>
