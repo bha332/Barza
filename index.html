@@ -42,7 +42,7 @@
             font-size: 1.2rem;
             margin: 10px 0 0;
             animation: fadeIn 3s ease-in-out;
-            color: black;
+            color: white;
         }
 
         @keyframes fadeIn {
@@ -117,8 +117,25 @@
             color: white;
             background: #bf0a30; /* Red from the Palestine flag */
             padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .card-content a::before {
+            content: '❤';
+            font-size: 1.5rem;
+        }
+
+        .card-content a:hover {
+            background: #a30927;
+            transform: scale(1.1);
         }
 
         .card-content a:hover {
@@ -200,7 +217,7 @@
 </head>
 <body>
     <header style="text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #007a3d, #ffffff, #bf0a30); color: white;">
-    <h1 style="font-size: 3rem; margin: 0; color: black;">Barza - Hear Their Cries</h1>
+    <h1 style="font-size: 3rem; margin: 0; color: white;">Barza - Hear Their Cries</h1>
     <p style="font-size: 1.4rem; margin: 15px 0; color: black;">Raising awareness and support for families affected by violence in Gaza</p>
     <div class="social-icons" style="margin-top: 20px;">
         <a href="https://www.tiktok.com/@wizard_bisan1?lang=en" target="_blank" style="text-decoration: none; font-size: 1.2rem; color: #bf0a30; font-weight: bold;">📹 Ground Footage</a>
@@ -223,7 +240,7 @@
         <h2 style="text-align: center; margin: 20px 0; font-size: 24px; color: #333;">
             If You Want to Directly Support Families
         </h2>
-          <section>
+
         <div class="cards">
             <div class="card">
                 <img src="assets/images/IMG_1503.webp" alt="Displaced Family">
