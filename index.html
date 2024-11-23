@@ -193,50 +193,10 @@
             transform: scale(1.1);
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.querySelector('video');
-            video.muted = true;
-            video.autoplay = true;
-            video.play().catch(error => console.error('Autoplay failed:', error));
-
-            video.addEventListener('click', () => {
-                video.muted = false;
-                video.play();
-            });
-
-            const backToTop = document.createElement('button');
-            backToTop.textContent = '↑';
-            backToTop.classList.add('back-to-top');
-            document.body.appendChild(backToTop);
-
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            window.addEventListener('scroll', () => {
-                backToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
         <h1>Barza - Hear Their Cries</h1>
-        <p>Raising awareness and support for families affected by violence in Gaza</p>
-        <a href="https://www.tiktok.com/@wizard_bisan1?lang=en" target="_blank">📹 Ground Footage</a>
-    </header>
-
-    <div class="video-container">
-        <video autoplay muted controls>
-            <source src="assets/videos/5675c48d-ed94-4e6c-a412-8415373c1876.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <div class="cta-links">
-        <a href="https://matwprojectusa.org/appeals/
-
         <p>Raising awareness and support for families affected by violence in Gaza</p>
         <a href="https://www.tiktok.com/@wizard_bisan1?lang=en" target="_blank">📹 Ground Footage</a>
     </header>
@@ -362,9 +322,6 @@
         <p>Trapped in Gaza, Salah's family needs help to evacuate and rebuild their lives in safety.</p>
         <a href="https://gofund.me/a8a746c9" target="_blank">Donate Now</a>
     </div>
-</div>
-
-        </div>
     </section>
 
     <footer>
