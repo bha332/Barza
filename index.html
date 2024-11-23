@@ -7,7 +7,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-NTL5FMYPYP');
     </script>
     <!-- End Google Tag Manager -->
@@ -20,33 +19,27 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* White background */
+            background-color: #ffffff;
             color: #333;
         }
 
         header {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(to right, #000000, #007a3d, #ffffff, #bf0a30); /* Colors of the Palestine flag */ /* Soft peach and orange gradient */
+            background: linear-gradient(to right, #000000, #007a3d, #ffffff, #bf0a30);
             color: white;
-            position: relative;
+        }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin: 0;
-            animation: fadeIn 2s ease-in-out;
+            color: white;
         }
 
         header p {
-            font-size: 1.2rem;
-            margin: 10px 0 0;
-            animation: fadeIn 3s ease-in-out;
+            font-size: 1.4rem;
+            margin: 15px 0;
             color: white;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .video-container {
@@ -61,6 +54,26 @@
             object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .cta-links a {
+            text-decoration: none;
+            color: white;
+            background: #007a3d;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-links a:hover {
+            background: #00662f;
         }
 
         .cards {
@@ -114,7 +127,7 @@
             margin-top: 10px;
             text-decoration: none;
             color: white;
-            background: #bf0a30; /* Red from the Palestine flag */
+            background: #bf0a30;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 1rem;
@@ -126,53 +139,18 @@
             background: #a30927;
         }
 
-        .card-content a::before {
-            content: '❤';
-            font-size: 1.5rem;
-        }
-
-        .card-content a:hover {
-            background: #a30927;
-            transform: scale(1.1);
-        }
-
-        .card-content a:hover {
-            background: #a30927;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #000000; /* Black from the Palestine flag */
+            background-color: #000000;
             color: white;
-            margin-top: 20px;
-        }
-
-        .cta-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .cta-links a {
-            text-decoration: none;
-            color: white;
-            background: #007a3d; /* Green from the Palestine flag */
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .cta-links a:hover {
-            background: #00662f;
         }
 
         .back-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #bf0a30; /* Red from the Palestine flag */
+            background: #bf0a30;
             color: white;
             border: none;
             padding: 10px 15px;
@@ -214,12 +192,13 @@
     </script>
 </head>
 <body>
-    <header style="text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #007a3d, #ffffff, #bf0a30); color: white;">
-    <h1 style="font-size: 3rem; margin: 0; color: white;">Barza - Hear Their Cries</h1>
-    <p style="font-size: 1.4rem; margin: 15px 0; color: black;">Raising awareness and support for families affected by violence in Gaza</p>
-    <div class="social-icons" style="margin-top: 20px;">
-        <a href="https://www.tiktok.com/@wizard_bisan1?lang=en" target="_blank" style="text-decoration: none; font-size: 1.2rem; color: #bf0a30; font-weight: bold;">📹 Ground Footage</a>
-    </div>
+    <header>
+        <h1>Barza - Hear Their Cries</h1>
+        <p>Raising awareness and support for families affected by violence in Gaza</p>
+        <div class="social-icons">
+            <a href="https://www.tiktok.com/@wizard_bisan1?lang=en" target="_blank">📹 Ground Footage</a>
+        </div>
+    </header>
 
     <div class="video-container">
         <video autoplay muted controls>
@@ -235,53 +214,114 @@
     </div>
 
     <section>
-        <h2 style="text-align: center; margin: 20px 0; font-size: 24px; color: #333;">
-            If You Want to Directly Support Families
-        </h2>
-           <div class="card">
-            <img src="assets/images/IMG_1500.webp" alt="Family Image">
-            <div class="card-content">
-                <h3>Hasan Alaloul's Family</h3>
-                <p>Struggling after repeated bombings, Hasan's family needs urgent support to rebuild their lives.</p>
-                <a href="https://gofund.me/58aa445e" target="_blank">Donate Now</a>
-            </div>
-        </div>
+        <h2 style="text-align: center; margin: 20px 0;">If You Want to Directly Support Families</h2>
+     <div class="card">
+    <img src="assets/images/IMG_1503.webp" alt="Displaced Family">
+    <div class="card-content">
+        <h3>Displaced Family</h3>
+        <p>After losing everything to violence, this family seeks your help to rebuild their lives and create stability for their children.</p>
+        <a href="https://gofund.me/454fcb52" target="_blank">Donate Now</a>
+    </div>
+</div>
 
-        <div class="card">
-            <img src="assets/images/83890079_1730715001598220_r.webp" alt="Family Image">
-            <div class="card-content">
-                <h3>Mohammed Zaqout's Family</h3>
-                <p>Forced to flee six times, Mohammed's family seeks your help to rebuild their lives and ensure safety.</p>
-                <a href="https://gofund.me/832b5736" target="_blank">Donate Now</a>
-            </div>
-        </div>
+<div class="card">
+    <img src="assets/images/80174451_1716469896878756_r.webp" alt="Mohammed Qunoo's Family">
+    <div class="card-content">
+        <h3>Mohammed Qunoo's Family</h3>
+        <p>Facing repeated displacement, Mohammed's family dreams of rebuilding their lives and ensuring a future for their children.</p>
+        <a href="https://gofund.me/07fa3c81" target="_blank">Donate Now</a>
+    </div>
+</div>
 
-        <div class="card">
-            <img src="assets/images/IMG_1511.webp" alt="Family Image">
-            <div class="card-content">
-                <h3>Kristina's Family</h3>
-                <p>Devastated by war, Kristina's family needs your help to secure medical care and rebuild their future.</p>
-                <a href="https://gofund.me/ef39b705" target="_blank">Donate Now</a>
-            </div>
-        </div>
+<div class="card">
+    <img src="assets/images/IMG_1504.webp" alt="Moamen Selmi's Family">
+    <div class="card-content">
+        <h3>Moamen Selmi's Family</h3>
+        <p>Displaced and struggling, this family seeks help to ensure their daughter Maryam's health and safety.</p>
+        <a href="https://gofund.me/96712a36" target="_blank">Donate Now</a>
+    </div>
+</div>
 
-        <div class="card">
-            <img src="assets/images/IMG_1509.webp" alt="Family Image">
-            <div class="card-content">
-                <h3>Support Families in Gaza</h3>
-                <p>Help three families in desperate need: Nafez, Susan, and Majeda. Your support can change their lives.</p>
-                <a href="https://linktr.ee/insherah_alhaj?utm_source=linktree_profile_share" target="_blank">Donate Now</a>
-            </div>
-        </div>
+<div class="card">
+    <img src="assets/images/82951687_1727086001558227_r.webp" alt="Haytham's Family">
+    <div class="card-content">
+        <h3>Haytham's Family</h3>
+        <p>Living in dire conditions, Haytham's family urgently needs medical care and basic necessities.</p>
+        <a href="https://gofund.me/e1eaa39e" target="_blank">Donate Now</a>
+    </div>
+</div>
 
-        <div class="card">
-            <img src="assets/images/IMG_1510.webp" alt="Family Image">
-            <div class="card-content">
-                <h3>Salah Jabr's Family</h3>
-                <p>Trapped in Gaza, Salah's family needs help to evacuate and rebuild their lives in safety.</p>
-                <a href="https://gofund.me/a8a746c9" target="_blank">Donate Now</a>
-            </div>
-        </div>
+<div class="card">
+    <img src="assets/images/IMG_1505.webp" alt="Ghassan Murtaja's Family">
+    <div class="card-content">
+        <h3>Ghassan Murtaja's Family</h3>
+        <p>Help Ghassan and his family rebuild their lives and find hope amidst devastation.</p>
+        <a href="https://gofund.me/4f98e572" target="_blank">Donate Now</a>
+    </div>
+</div>
+
+<div class="card">
+    <img src="assets/images/IMG_1506.webp" alt="Baby Yasser's Family">
+    <div class="card-content">
+        <h3>Baby Yasser's Family</h3>
+        <p>Yasser needs urgent medical care to survive. Your support can save his life.</p>
+        <a href="https://gofund.me/92ebf568" target="_blank">Donate Now</a>
+    </div>
+</div>
+
+<div class="card">
+    <img src="assets/images/IMG_1508.webp" alt="Ali Abu Hussein's Family">
+    <div class="card-content">
+        <h3>Ali Abu Hussein's Family</h3>
+        <p>Ali and his family dream of safety and stability after losing their home to war.</p>
+        <a href="https://gofund.me/11c7343f" target="_blank">Donate Now</a>
+    </div>
+</div>
+
+<div class="card">
+    <img src="assets/images/IMG_1500.webp" alt="Hasan Alaloul's Family">
+    <div class="card-content">
+        <h3>Hasan Alaloul's Family</h3>
+        <p>Struggling after repeated bombings, Hasan's family needs urgent support to rebuild their lives.</p>
+        <a href="https://gofund.me/58aa445e" target="_blank">Donate Now</a>
+    </div>
+</div>
+
+<div class="card">
+    <img src="assets/images/83890079_1730715001598220_r.webp" alt="Mohammed Zaqout's Family">
+    <div class="card-content">
+        <h3>Mohammed Zaqout's Family</h3>
+        <p>Forced to flee six times, Mohammed's family seeks your help to rebuild their lives and ensure safety.</p>
+        <a href="https://gofund.me/832b5736" target="_blank">Donate Now</a>
+    </div>
+</div>
+
+<div class="card">
+    <img src="assets/images/IMG_1511.webp" alt="Kristina's Family">
+    <div class="card-content">
+        <h3>Kristina's Family</h3>
+        <p>Devastated by war, Kristina's family needs your help to secure medical care and rebuild their future.</p>
+        <a href="https://gofund.me/ef39b705" target="_blank">Donate Now</a>
+    </div>
+</div>
+
+<div class="card">
+    <img src="assets/images/IMG_1509.webp" alt="Support Families in Gaza">
+    <div class="card-content">
+        <h3>Support Families in Gaza</h3>
+        <p>Help three families in desperate need: Nafez, Susan, and Majeda. Your support can change their lives.</p>
+        <a href="https://linktr.ee/insherah_alhaj?utm_source=linktree_profile_share" target="_blank">Donate Now</a>
+    </div>
+</div>
+
+<div class="card">
+    <img src="assets/images/IMG_1510.webp" alt="Salah Jabr's Family">
+    <div class="card-content">
+        <h3>Salah Jabr's Family</h3>
+        <p>Trapped in Gaza, Salah's family needs help to evacuate and rebuild their lives in safety.</p>
+        <a href="https://gofund.me/a8a746c9" target="_blank">Donate Now</a>
+    </div>
+</div>
 
     </section>
 
